@@ -2,7 +2,7 @@ import React from 'react'
 
 import getImageUrl from '../services/getImageUrl'
 
-const MovieCard = ({ movie, hoverable }) => {
+const MovieCard = ({ movie, hoverable, setShowTrailer, setMovieId }) => {
   const scoreIndicator = (score) => {
     const color = score >= 7 ? '#28A745' : score < 4 ? 'red' : '#FFC107'
     return (
@@ -28,10 +28,14 @@ const MovieCard = ({ movie, hoverable }) => {
 
       {hoverable && (
         <div className="buttons-wrapper">
-          <button type="button" class="btn btn-outline-pink w-100 mb-2">
+          <button
+            type="button"
+            onClick={() => setMovieId(movie.id)}
+            className="btn btn-outline-pink w-100 mb-2"
+          >
             Trailer
           </button>
-          <button type="button" class="btn btn-pink w-100 mt-1">
+          <button type="button" className="btn btn-pink w-100 mt-1">
             Details
           </button>
         </div>
