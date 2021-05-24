@@ -22,6 +22,10 @@ html {
   text-shadow: none;
 }
 
+body {
+  background-color: $body-bg;
+}
+
 b,
 strong {
   font-weight: $font-weight-bold;
@@ -37,6 +41,11 @@ strong {
   height: 200px;
 }
 
+main {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
 a {
   text-decoration: none !important;
 
@@ -44,13 +53,4 @@ a {
   i {
     transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out, color 0.3s ease-in-out;
   }
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  color: $gray-900;
 }

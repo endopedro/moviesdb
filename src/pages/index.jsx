@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import moviesApi from '../services/moviesApi'
-import getImageUrl from '../services/getImageUrl'
+
+import Layout from '../components/Layout'
 
 const index = () => {
   useEffect(() => {
@@ -10,9 +11,9 @@ const index = () => {
   }, [])
 
   return (
-    <div className="container">
-      <h1>MoviesDB</h1>
-    </div>
+    <Layout title={'Home'}>
+      <h1 className="mt-4 pt-2 pb-4 border-bottom border-2">Filmes em alta</h1>
+    </Layout>
   )
 }
 
