@@ -7,6 +7,8 @@
 'abstracts/mixins';
 
 @import "~bootstrap";
+@import "~react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+
 
 // 2. Vendors
 @import
@@ -27,7 +29,8 @@
 
 // 5. Components
 @import
-  'components/button';
+  'components/button',
+  'components/movie-card';
 
 // 6. Page-specific styles
 @import
