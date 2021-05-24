@@ -1,3 +1,53 @@
 // -----------------------------------------------------------------------------
 // This file contains all styles related to the button component.
 // -----------------------------------------------------------------------------
+
+.btn-pink {
+  @extend .btn-primary, .rounded-pill;
+
+  background-color: $amaranth;
+  border-width: 2px;
+  font-weight: 500;
+  border-color: $amaranth;
+
+  &:hover,
+  &:active,
+  &:checked,
+  &:focus,
+  &:visited {
+    background-color: darken($amaranth, 10%);
+    border-color: darken($amaranth, 10%);
+  }
+
+  &:active,
+  &:focus {
+    box-shadow: 0 0 0 0.25rem rgba($amaranth, .5) !important;
+  }
+}
+
+.btn-outline-pink {
+  @extend .btn-outline-primary, .rounded-pill;
+
+  color: $amaranth;
+  border-width: 2px;
+  font-weight: 500;
+
+  &:active,
+  &:hover {
+    background-color: $amaranth;
+  }
+
+  &,
+  &:hover,
+  &:active,
+  &:checked,
+  &:focus,
+  &:visited {
+    border-color: $amaranth;
+  }
+
+  &:active,
+  &:focus {
+    box-shadow: 0 0 0 0.25rem rgba($amaranth, .5) !important;
+  }
+}
