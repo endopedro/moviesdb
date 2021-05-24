@@ -3,6 +3,7 @@ import { Modal } from 'react-bootstrap'
 import ReactPlayer from 'react-player'
 import Loader from 'react-loader-spinner'
 import _ from 'lodash'
+import { isMobile } from 'react-device-detect'
 
 import moviesApi from '../services/moviesApi'
 
@@ -45,7 +46,12 @@ const TrailerModal = ({ showTrailer, setShowTrailer, movieId, setMovieId }) => {
       ) : (
         <>
           {url ? (
-            <ReactPlayer url={url} controls />
+            <ReactPlayer
+              url={url}
+              controls
+              height={isMobile ? '300px' : '360px'}
+              width={isMobile ? '100vw' : '640px'}
+            />
           ) : (
             <Loader
               className="mx-auto"
