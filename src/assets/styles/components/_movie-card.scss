@@ -3,7 +3,7 @@
 
   position: relative;
   overflow: hidden;
-  height: 245px;
+  height: 300px;
 
   .movie-poster {
     object-fit: cover;
@@ -27,7 +27,7 @@
     align-items: center;
   }
 
-  .buttons-wrapper {
+  .buttons-wrapper.desktop {
     opacity: 0;
     transition: 0.3s;
     position: absolute;
@@ -45,5 +45,44 @@
     &:hover {
       opacity: 1;
     }
+  }
+
+  .buttons-wrapper.mobile {
+    .big-button {
+      @extend .rounded-pill;
+
+      background-color: $amaranth;
+      position: absolute;
+      bottom: -50px;
+      height: 100px;
+      width: 100px;
+      left: -50px;
+
+      .icon {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+      }
+    }
+  }
+}
+
+@include media-breakpoint-down(xxl) {
+  .movie-card {
+    height: 245px;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .movie-card {
+    height: 370px;
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .movie-card {
+    height: 370px;
+    max-width: 240px;
+    margin: 0 auto;
   }
 }

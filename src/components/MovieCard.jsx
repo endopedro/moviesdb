@@ -1,4 +1,6 @@
 import React from 'react'
+import { isMobile } from 'react-device-detect'
+import { FaPlay } from 'react-icons/fa'
 
 import getImageUrl from '../services/getImageUrl'
 
@@ -18,7 +20,10 @@ const MovieCard = ({ movie, hoverable, setShowTrailer, setMovieId }) => {
       <img
         className="movie-poster"
         src={getImageUrl(movie.poster_path, 300)}
-        alt=""
+        alt={movie.title}
+        onClick={() => {
+          if (isMobile) console.log('push')
+        }}
       />
 
       <div className="movie-score">
@@ -26,8 +31,17 @@ const MovieCard = ({ movie, hoverable, setShowTrailer, setMovieId }) => {
         <span className="ms-2">{movie.vote_average}</span>
       </div>
 
-      {hoverable && (
-        <div className="buttons-wrapper">
+      {isMobile ? (
+        <div
+          className="buttons-wrapper mobile"
+          onClick={() => setMovieId(movie.id)}
+        >
+          <div className="big-button btn">
+            <FaPlay className="icon" />
+          </div>
+        </div>
+      ) : (
+        <div className="buttons-wrapper desktop">
           <button
             type="button"
             onClick={() => setMovieId(movie.id)}

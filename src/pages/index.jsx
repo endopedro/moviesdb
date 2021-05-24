@@ -45,7 +45,9 @@ const index = () => {
 
   return (
     <Layout title={'Home'}>
-      <h1 className="mt-4 pt-2 pb-4 border-bottom border-2">Popular movies</h1>
+      <h1 className="mt-4 pt-2 pb-4 border-bottom border-2 text-center text-md-start">
+        Popular movies
+      </h1>
       <InfiniteScroll
         className="row"
         pageStart={0}
@@ -64,10 +66,15 @@ const index = () => {
         }
       >
         {movies.map((movie) => (
-          <div className="col-2 mb-3" key={movie.id}>
+          <div className="col-xl-2 col-md-3 col-sm-6 mb-3" key={movie.id}>
             <MovieCard movie={movie} hoverable setMovieId={setMovieId} />
-            <h6 className="mt-3 mb-1">{movie.title}</h6>
-            <p style={{ fontSize: '14px' }}>
+            <h6 className="mt-3 mb-1 text-center text-md-start">
+              {movie.title}
+            </h6>
+            <p
+              className="text-center text-md-start"
+              style={{ fontSize: '14px' }}
+            >
               <Moment date={movie.release_date} format="ll" />
             </p>
           </div>
