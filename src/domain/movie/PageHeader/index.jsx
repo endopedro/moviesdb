@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { FaPlayCircle } from 'react-icons/fa'
 
 import Poster from './Poster'
-import TrailerModal from '../../components/TrailerModal'
+import TrailerModal from '../../../components/TrailerModal'
 
 const PageHeader = ({ movie }) => {
   const [showTrailer, setShowTrailer] = useState(false)

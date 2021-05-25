@@ -1,7 +1,7 @@
 import React from 'react'
 
-import getImageUrl from '../../services/getImageUrl'
-import MovieScore from '../../components/MovieScore'
+import getImageUrl from '../../../services/getImageUrl'
+import MovieScore from '../../../components/MovieScore'
 
 const Poster = ({ src, title, score }) => {
   return (
