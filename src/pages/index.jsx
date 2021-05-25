@@ -2,13 +2,13 @@ import React, { useState, useEffect } from 'react'
 import InfiniteScroll from 'react-infinite-scroller'
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
-import Loader from 'react-loader-spinner'
 import Moment from 'react-moment'
 
 import moviesApi from '../services/moviesApi'
 import Layout from '../components/Layout'
 import MovieCard from '../components/MovieCard'
 import TrailerModal from '../components/TrailerModal'
+import Loader from '../components/Loader'
 
 const index = () => {
   const MySwal = withReactContent(Swal)
@@ -53,17 +53,7 @@ const index = () => {
         pageStart={0}
         loadMore={fetchMovies}
         hasMore={hasMoreMovies}
-        loader={
-          <div className="d-flex" key={0}>
-            <Loader
-              className="mx-auto"
-              type="Puff"
-              color="#00BFFF"
-              height={100}
-              width={100}
-            />
-          </div>
-        }
+        loader={<Loader key={0} />}
       >
         {movies.map((movie) => (
           <div className="col-xl-2 col-md-3 col-sm-6 mb-3" key={movie.id}>

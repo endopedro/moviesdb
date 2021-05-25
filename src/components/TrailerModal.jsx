@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { Modal } from 'react-bootstrap'
 import ReactPlayer from 'react-player'
-import Loader from 'react-loader-spinner'
 import _ from 'lodash'
 import { isMobile } from 'react-device-detect'
 
 import moviesApi from '../services/moviesApi'
+import Loader from './Loader'
 
 const TrailerModal = ({ showTrailer, setShowTrailer, movieId, setMovieId }) => {
   const [url, setUrl] = useState(null)
@@ -53,13 +53,7 @@ const TrailerModal = ({ showTrailer, setShowTrailer, movieId, setMovieId }) => {
               width={isMobile ? '100vw' : '640px'}
             />
           ) : (
-            <Loader
-              className="mx-auto"
-              type="Puff"
-              color="#00BFFF"
-              height={100}
-              width={100}
-            />
+            <Loader />
           )}
         </>
       )}
