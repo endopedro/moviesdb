@@ -1,9 +1,9 @@
 import React from 'react'
 import Loader from 'react-loader-spinner'
 
-const LoaderComponent = () => {
+const LoaderComponent = ({ className }) => {
   return (
-    <div className="d-flex">
+    <div className={`d-flex ${className ? className : ''}`}>
       <Loader
         className="mx-auto"
         type="Puff"

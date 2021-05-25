@@ -7,12 +7,12 @@ import { isMobile } from 'react-device-detect'
 import moviesApi from '../services/moviesApi'
 import Loader from './Loader'
 
-const TrailerModal = ({ showTrailer, setShowTrailer, movieId, setMovieId }) => {
+const TrailerModal = ({ showModal, closeModal, movieId }) => {
   const [url, setUrl] = useState(null)
   const [videoNotFound, setVideoNotFound] = useState(false)
 
   useEffect(() => {
-    if (showTrailer) {
+    if (showModal) {
       setVideoNotFound(false)
       setUrl(null)
       moviesApi()
@@ -28,18 +28,15 @@ const TrailerModal = ({ showTrailer, setShowTrailer, movieId, setMovieId }) => {
         })
         .catch(() => setVideoNotFound(true))
     }
-  }, [showTrailer])
+  }, [showModal])
 
   return (
     <Modal
       contentClassName="bg-transparent align-items-center border-0"
       centered
       size="lg"
-      show={showTrailer}
-      onHide={() => {
-        setShowTrailer(false)
-        setMovieId(null)
-      }}
+      show={showModal}
+      onHide={() => closeModal()}
     >
       {videoNotFound ? (
         <h5 className="text-bold">There's no trailer for this movie.</h5>

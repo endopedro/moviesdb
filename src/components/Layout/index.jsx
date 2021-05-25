@@ -12,8 +12,7 @@ const Layout = ({ children, title }) => {
           <title>{title} | MoviesDB</title>
         </Head>
       )}
-
-      <div className="container">{children}</div>
+      {children}
     </>
   )
 }

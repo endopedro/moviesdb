@@ -1,0 +1,56 @@
+.movie {
+  position: relative;
+
+  .background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 500px;
+    width: 100%;
+
+    .background-image {
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0.15;
+    }
+  
+    .background-gradient {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: linear-gradient(to bottom, rgba($black-pearl,0) 20%,rgba($black-pearl,1) 100%);
+    }
+  }
+
+  .page-header {
+    .poster {
+      position: relative;
+
+      max-width: 350px;
+      margin: auto;
+
+      .poster-image {
+        @extend .rounded-3;
+
+        width: 100%;
+      }
+    }
+
+    .movie-title {
+      font-size: 2.5rem;
+      margin-bottom: 4.25rem;
+    }
+
+    .movie-description {
+      color: $gray-500;
+      font-weight: 500;
+      margin-bottom: 2rem;
+    }
+  }
+}

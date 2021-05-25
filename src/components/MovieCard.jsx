@@ -1,4 +1,5 @@
 import React from 'react'
+import { useRouter } from 'next/router'
 import { isMobile } from 'react-device-detect'
 import { FaPlay } from 'react-icons/fa'
 
@@ -6,6 +7,8 @@ import getImageUrl from '../services/getImageUrl'
 import MovieScore from '../components/MovieScore'
 
 const MovieCard = ({ movie, setMovieId }) => {
+  const router = useRouter()
+
   return (
     <div className="movie-card">
       <img
@@ -13,7 +16,7 @@ const MovieCard = ({ movie, setMovieId }) => {
         src={getImageUrl(movie.poster_path, 'w300')}
         alt={movie.title}
         onClick={() => {
-          if (isMobile) console.log('push')
+          if (isMobile) router.push(`/movie/${movie.id}`)
         }}
       />
 
@@ -37,7 +40,11 @@ const MovieCard = ({ movie, setMovieId }) => {
           >
             Trailer
           </button>
-          <button type="button" className="btn btn-pink w-100 mt-1">
+          <button
+            type="button"
+            className="btn btn-pink w-100 mt-1"
+            onClick={() => router.push(`/movie/${movie.id}`)}
+          >
             Details
           </button>
         </div>

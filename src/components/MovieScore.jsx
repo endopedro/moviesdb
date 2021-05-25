@@ -1,7 +1,7 @@
 import React from 'react'
 
-const MovieScore = ({ score }) => (
-  <div className="movie-score">
+const MovieScore = ({ score, lg }) => (
+  <div className={`movie-score${lg ? ' lg' : ''}`}>
     <div
       className={`score-indicator ${
         score >= 7 ? 'green' : score < 4 ? 'red' : 'yellow'
