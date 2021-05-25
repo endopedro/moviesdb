@@ -3,33 +3,21 @@ import { isMobile } from 'react-device-detect'
 import { FaPlay } from 'react-icons/fa'
 
 import getImageUrl from '../services/getImageUrl'
+import MovieScore from '../components/MovieScore'
 
-const MovieCard = ({ movie, hoverable, setShowTrailer, setMovieId }) => {
-  const scoreIndicator = (score) => {
-    const color = score >= 7 ? '#28A745' : score < 4 ? 'red' : '#FFC107'
-    return (
-      <div
-        className="rounded-pill"
-        style={{ width: '10px', height: '10px', backgroundColor: color }}
-      />
-    )
-  }
-
+const MovieCard = ({ movie, setMovieId }) => {
   return (
     <div className="movie-card">
       <img
         className="movie-poster"
-        src={getImageUrl(movie.poster_path, 300)}
+        src={getImageUrl(movie.poster_path, 'w300')}
         alt={movie.title}
         onClick={() => {
           if (isMobile) console.log('push')
         }}
       />
 
-      <div className="movie-score">
-        {scoreIndicator(movie.vote_average)}
-        <span className="ms-2">{movie.vote_average}</span>
-      </div>
+      <MovieScore score={movie.vote_average} />
 
       {isMobile ? (
         <div

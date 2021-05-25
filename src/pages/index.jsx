@@ -67,7 +67,7 @@ const index = () => {
       >
         {movies.map((movie) => (
           <div className="col-xl-2 col-md-3 col-sm-6 mb-3" key={movie.id}>
-            <MovieCard movie={movie} hoverable setMovieId={setMovieId} />
+            <MovieCard movie={movie} setMovieId={setMovieId} />
             <h6 className="mt-3 mb-1 text-center text-md-start">
               {movie.title}
             </h6>

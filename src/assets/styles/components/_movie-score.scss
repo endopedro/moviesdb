@@ -1,0 +1,45 @@
+.movie-score {
+  @extend .rounded-pill;
+
+  padding: 0.375rem 0.5rem;
+  background-color: rgba($black, 0.5);
+  font-weight: 500;
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  display: flex;
+  align-items: center;
+
+  .score-indicator {
+    @extend .rounded-pill;
+
+    width: 10px;
+    height: 10px;
+
+    &.green {
+      background-color: #28A745;
+    }
+
+    &.yellow {
+      background-color: #FFC107;
+    }
+
+    &.red {
+      background-color: red;
+    }
+  }
+
+  .score-value {
+    font-size: 0.625rem;
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .movie-score {
+    padding: 0.375rem 0.75rem;
+
+    .score-value {
+      font-size: 0.875rem;
+    }
+  }
+}
