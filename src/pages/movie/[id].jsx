@@ -21,32 +21,17 @@ const Movie = () => {
 
   useEffect(() => {
     if (id) {
-      Promise.all([
-        moviesApi()
-          .getMovie(id)
-          .then(({ data }) => data),
-        moviesApi()
-          .getCredits(id)
-          .then(({ data }) => data),
-        moviesApi()
-          .getSimilar(id)
-          .then(({ data }) => data.results),
-      ])
-        .then((values) => {
-          setMovie({
-            ...values[0],
-            ...values[1],
-            related: [...values[2]],
-          })
-          setLoading(false)
-        })
+      moviesApi()
+        .getMovie(id)
+        .then(data => setMovie(data))
         .catch(() =>
           MySwal.fire({
             icon: 'error',
             title: 'Oops...',
             text: 'Failed to connect to server.',
-          }).then(setLoading(false))
+          })
         )
+        .finally(()=>setLoading(false))
     }
   }, [id])
 
