@@ -7,7 +7,6 @@ import Info from './Info'
 
 const PageHeader = ({ movie }) => {
   const [showTrailer, setShowTrailer] = useState(false)
-  const [movieId, setMovieId] = useState(null)
 
   return (
     <div className="page-header">
@@ -24,12 +23,12 @@ const PageHeader = ({ movie }) => {
           <p className="movie-description">{movie.overview}</p>
           <button
             type="button"
-            className="btn btn-pink"
+            className="btn btn-pink mb-4"
             onClick={() => setShowTrailer(true)}
           >
             <FaPlayCircle className="mb-1 me-1" /> Watch Trailer
           </button>
-          <Info />
+          <Info movie={movie} />
         </div>
       </div>
       <TrailerModal
