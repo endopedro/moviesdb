@@ -1,7 +1,10 @@
 /**
  * Basic typography style for copy text
  */
- 
+
 body {
   color: $body-color;
 }
+
+.text-astral {color: $astral; }
+.text-iris { color: $iris-blue; }
