@@ -69,7 +69,7 @@ const index = () => {
               </h6>
               <p
                 className="text-center text-md-start"
-                style={{ fontSize: '14px' }}
+                style={{ fontSize: '14px', color: '#DEE2E6' }}
               >
                 <Moment date={movie.release_date} format="ll" />
               </p>

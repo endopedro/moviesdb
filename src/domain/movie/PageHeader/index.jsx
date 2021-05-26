@@ -3,6 +3,7 @@ import { FaPlayCircle } from 'react-icons/fa'
 
 import Poster from './Poster'
 import TrailerModal from '../../../components/TrailerModal'
+import Info from './Info'
 
 const PageHeader = ({ movie }) => {
   const [showTrailer, setShowTrailer] = useState(false)
@@ -28,6 +29,7 @@ const PageHeader = ({ movie }) => {
           >
             <FaPlayCircle className="mb-1 me-1" /> Watch Trailer
           </button>
+          <Info />
         </div>
       </div>
       <TrailerModal
