@@ -1,14 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { FaPlayCircle } from 'react-icons/fa'
 
 import Poster from './Poster'
-import TrailerModal from '../../../components/TrailerModal'
 import Info from './Info'
 import Crew from './Crew'
 
-const PageHeader = ({ movie, className }) => {
-  const [showTrailer, setShowTrailer] = useState(false)
-
+const PageHeader = ({ movie, setMovieId }) => {
   return (
     <div className="page-header">
       <div className="row">
@@ -25,7 +22,7 @@ const PageHeader = ({ movie, className }) => {
           <button
             type="button"
             className="btn btn-pink mb-4"
-            onClick={() => setShowTrailer(true)}
+            onClick={() => setMovieId(movie.id)}
           >
             <FaPlayCircle className="mb-1 me-1" /> Watch Trailer
           </button>
@@ -33,11 +30,6 @@ const PageHeader = ({ movie, className }) => {
           <Crew crew={movie.crew} className="mt-1" />
         </div>
       </div>
-      <TrailerModal
-        showModal={showTrailer}
-        closeModal={() => setShowTrailer(false)}
-        movieId={movie.id}
-      />
     </div>
   )
 }

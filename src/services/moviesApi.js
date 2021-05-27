@@ -11,7 +11,7 @@ const moviesApi = () => ({
     ]).then((values) => ({
       ...values[0],
       ...values[1],
-      related: [...values[2]],
+      similar: [...values[2]],
     })),
 })
 

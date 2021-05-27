@@ -9,7 +9,7 @@ const Info = ({ movie, className }) => {
   const titles = ['Release Date', 'Runtime', 'Budget']
   const infos = [
     <Moment date={release_date} format="ll" />,
-    `${Math.floor(runtime / 60)}h${runtime % 60}`,
+    `${Math.floor(runtime / 60)}h ${runtime % 60}m`,
     new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'USD',
