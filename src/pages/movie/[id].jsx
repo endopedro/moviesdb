@@ -26,9 +26,10 @@ const Movie = () => {
 
   useEffect(() => {
     if (id) {
+      setLoading(true)
       moviesApi()
         .getMovie(id)
-        .then(data => setMovie(data))
+        .then((data) => setMovie(data))
         .catch(() =>
           MySwal.fire({
             icon: 'error',
@@ -36,7 +37,7 @@ const Movie = () => {
             text: 'Failed to connect to server.',
           })
         )
-        .finally(()=>setLoading(false))
+        .finally(() => setLoading(false))
     }
   }, [id])
 
@@ -58,9 +59,9 @@ const Movie = () => {
           <Background src={movie?.backdrop_path} title={movie?.title} />
           <div className="container position-relative">
             <Navigation />
-            <PageHeader 
-              movie={movie} 
-              className="mb-5" 
+            <PageHeader
+              movie={movie}
+              className="mb-5"
               setMovieId={setMovieId}
             />
             <Cast cast={movie.cast} />
