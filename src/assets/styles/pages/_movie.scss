@@ -70,9 +70,29 @@
         font-size: 0.75rem;
         font-weight: 500;
       }
+
       .info {
         font-size: 0.75rem;
       }
+
+      .release {
+        display: flex;
+        margin-right: 1.5rem;
+        padding-right: 1.5rem;
+        border-right: 1px solid $sherpa-blue;
+      }
+
+      .runtime {
+        display: flex;
+        margin-right: 1.5rem;
+        padding-right: 1.5rem;
+        border-right: 1px solid $sherpa-blue;
+      }
+
+      .budget {
+        display: flex;
+      }
+
     }
 
     .movie-crew {
@@ -166,6 +186,61 @@
           }
         }
       }
+    }
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .movie {
+    .page-header {
+      margin-bottom: 3.5rem;
+
+      .movie-title {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .trailer-button {
+        width: 100%;
+      }
+
+      .movie-info {
+        justify-content: center;
+
+        .runtime {
+          border: none;
+          margin: 0;
+          padding: 0;
+        }
+
+        .budget {
+          display: none;
+        }
+      }
+
+      .movie-crew {
+        .crew-member {
+          justify-content: center;
+
+          .picture {
+            width: 2.5rem;
+            height: 2.5rem;
+          }
+          .wrapper {
+            .name {
+              font-size: 1rem;
+            }
+            .job {
+              font-size: 0.825rem;
+              margin-top: -0.5rem;
+            }
+          }
+        }
+      }
+    }
+
+    .movie-cast {
+      margin-bottom: 3.5rem;
     }
   }
 }

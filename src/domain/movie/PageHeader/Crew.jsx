@@ -39,13 +39,17 @@ const Crew = ({ crew, className }) => {
 
   return (
     <div className={`movie-crew ${className ? className : ''}`}>
-      <h6 className="text-iris">Crew</h6>
+      <h6 className="text-iris text-center text-sm-start">Crew</h6>
       <Slider {...settings}>
         {crew.slice(0, 10).map((member) => (
           <div className="crew-member" key={member.id}>
             <img
               className="picture"
-              src={member.profile_path ? getImageUrl(member.profile_path, 'w200') : '/no-avatar.png '}
+              src={
+                member.profile_path
+                  ? getImageUrl(member.profile_path, 'w200')
+                  : '/no-avatar.png '
+              }
               alt={member.name}
               onError={(e) => (e.target.src = '/no-avatar.png')}
             />

@@ -21,12 +21,12 @@ const PageHeader = ({ movie, setMovieId }) => {
           <p className="movie-description">{movie.overview}</p>
           <button
             type="button"
-            className="btn btn-pink mb-4"
+            className="trailer-button btn btn-pink mb-4"
             onClick={() => setMovieId(movie.id)}
           >
             <FaPlayCircle className="mb-1 me-1" /> Watch Trailer
           </button>
-          <Info movie={movie} className="mt-1 mb-4" />
+          <Info movie={movie} className="mt-1 mb-5 mb-sm-4" />
           <Crew crew={movie.crew} className="mt-1" />
         </div>
       </div>

@@ -6,3 +6,15 @@
     color: $gray-600;
   }
 }
+
+@include media-breakpoint-down(sm) {
+  .slick-arrow {
+    &.slick-prev {
+      margin-left: 3rem;
+    }
+
+    &.slick-next {
+      margin-right: 3rem;
+    }
+  }
+}

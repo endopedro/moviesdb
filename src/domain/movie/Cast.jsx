@@ -4,7 +4,7 @@ import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 
 import getImageUrl from '../../services/getImageUrl'
 
-const Cast = ({cast, className}) => {
+const Cast = ({ cast, className }) => {
   const settings = {
     infinite: true,
     speed: 500,
@@ -39,14 +39,20 @@ const Cast = ({cast, className}) => {
 
   return (
     <div className={`movie-cast ${className ? className : ''}`}>
-      <h3 className="mb-3">Casting <span className="top-10">(top 10)</span></h3>
+      <h3 className="mb-3 text-center text-sm-start">
+        Casting <span className="top-10">(top 10)</span>
+      </h3>
       <div className="cast-wrapper">
         <Slider {...settings}>
           {cast.slice(0, 10).map((member) => (
             <div className="cast-member" key={member.id}>
               <img
                 className="picture"
-                src={member.profile_path ? getImageUrl(member.profile_path, 'w200') : '/no-avatar.png '}
+                src={
+                  member.profile_path
+                    ? getImageUrl(member.profile_path, 'w200')
+                    : '/no-avatar.png '
+                }
                 alt={member.name}
                 onError={(e) => (e.target.src = '/no-avatar.png')}
               />
