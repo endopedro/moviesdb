@@ -39,7 +39,7 @@ const index = () => {
 
   return (
     <Layout title={'Home'}>
-      <div className="container">
+      <div className="container mb-5">
         <h1 className="mt-4 pt-2 pb-4 border-bottom border-2 text-center text-md-start">
           Popular movies
         </h1>
