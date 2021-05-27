@@ -4,19 +4,24 @@ import ReactPlayer from 'react-player'
 import _ from 'lodash'
 import { isMobile } from 'react-device-detect'
 
+import { movieIdHandler, trailerHandler, reset } from '../states/trailer'
 import moviesApi from '../services/moviesApi'
+
 import Loader from './Loader'
 
-const TrailerModal = ({ showModal, closeModal, movieId }) => {
+const TrailerModal = () => {
+  const trailerMovieId = movieIdHandler.use()
+  const showTrailer = trailerHandler.use()
+
   const [url, setUrl] = useState(null)
   const [videoNotFound, setVideoNotFound] = useState(false)
 
   useEffect(() => {
-    if (showModal) {
+    if (showTrailer) {
       setVideoNotFound(false)
       setUrl(null)
       moviesApi()
-        .getVideos(movieId)
+        .getVideos(trailerMovieId)
         .then(({ data }) => {
           const trailerKey = _.find(data.results, {
             type: 'Trailer',
@@ -28,15 +33,15 @@ const TrailerModal = ({ showModal, closeModal, movieId }) => {
         })
         .catch(() => setVideoNotFound(true))
     }
-  }, [showModal])
+  }, [showTrailer])
 
   return (
     <Modal
       contentClassName="bg-transparent align-items-center border-0"
       centered
       size="lg"
-      show={showModal}
-      onHide={() => closeModal()}
+      show={showTrailer}
+      onHide={reset}
     >
       {videoNotFound ? (
         <h5 className="text-bold">There's no trailer for this movie.</h5>

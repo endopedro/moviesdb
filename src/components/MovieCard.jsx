@@ -3,10 +3,12 @@ import { useRouter } from 'next/router'
 import { isMobile } from 'react-device-detect'
 import { FaPlay } from 'react-icons/fa'
 
+import { setMovieId } from '../states/trailer'
 import getImageUrl from '../services/getImageUrl'
+
 import MovieScore from '../components/MovieScore'
 
-const MovieCard = ({ movie, setMovieId }) => {
+const MovieCard = ({ movie }) => {
   const router = useRouter()
 
   return (
@@ -19,9 +21,7 @@ const MovieCard = ({ movie, setMovieId }) => {
           if (isMobile) router.push(`/movie/${movie.id}`)
         }}
       />
-
       <MovieScore score={movie.vote_average} />
-
       {isMobile ? (
         <div
           className="buttons-wrapper mobile"

@@ -30,7 +30,7 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.13.8", "@babel/runtime@^7.5.5", "@babel/runtime@^7.6.3", "@babel/runtime@^7.8.7":
+"@babel/runtime@^7.13.10", "@babel/runtime@^7.13.8", "@babel/runtime@^7.5.5", "@babel/runtime@^7.6.3", "@babel/runtime@^7.8.7":
   version "7.14.0"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.14.0.tgz#46794bc20b612c5f75e62dd071e24dfd95f1cbe6"
   integrity sha512-JELkvo/DlpNdJ7dlyw/eY7E0suy5i5GQH+Vlxaq1nsNJ+H7f4Vtv3jMeCEgRhZZQFXTjldYfQgv2qmM6M1v5wA==
@@ -1830,6 +1830,13 @@ side-channel@^1.0.4:
     call-bind "^1.0.0"
     get-intrinsic "^1.0.2"
     object-inspect "^1.9.0"
+
+simpler-state@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/simpler-state/-/simpler-state-1.0.2.tgz#f51e43296ad9593b495a5e951061ebfd2535de7c"
+  integrity sha512-TYZgD3PFke3uQQv7yRBkEjDf+uTCxzBK7plZrMmvao5oTzyb04hiwvMytkWrqUy9LoGmOk8wUG9zDXbvrIt/QA==
+  dependencies:
+    "@babel/runtime" "^7.13.10"
 
 slick-carousel@^1.8.1:
   version "1.8.1"

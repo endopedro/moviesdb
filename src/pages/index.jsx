@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import InfiniteScroll from 'react-infinite-scroller'
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 import Moment from 'react-moment'
 
 import moviesApi from '../services/moviesApi'
+
 import Layout from '../components/Layout'
 import MovieCard from '../components/MovieCard'
 import TrailerModal from '../components/TrailerModal'
@@ -15,17 +16,6 @@ const index = () => {
 
   const [movies, setMovies] = useState([])
   const [hasMoreMovies, setHasMoreMovies] = useState(true)
-  const [showTrailer, setShowTrailer] = useState(false)
-  const [movieId, setMovieId] = useState(null)
-
-  useEffect(() => {
-    if (movieId) setShowTrailer(true)
-  }, [movieId])
-
-  const closeModal = () => {
-    setShowTrailer(false)
-    setMovieId(null)
-  }
 
   const fetchMovies = (page) => {
     if (hasMoreMovies) {
@@ -63,7 +53,7 @@ const index = () => {
         >
           {movies.map((movie) => (
             <div className="col-xl-2 col-md-3 col-sm-6 mb-3" key={movie.id}>
-              <MovieCard movie={movie} setMovieId={setMovieId} />
+              <MovieCard movie={movie} />
               <h6 className="mt-3 mb-1 text-center text-md-start">
                 {movie.title}
               </h6>
@@ -79,11 +69,7 @@ const index = () => {
         {!hasMoreMovies && (
           <h5 className="text-center mb-5">No more movies to load.</h5>
         )}
-        <TrailerModal
-          showModal={showTrailer}
-          closeModal={closeModal}
-          movieId={movieId}
-        />
+        <TrailerModal />
       </div>
     </Layout>
   )

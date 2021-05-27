@@ -1,11 +1,13 @@
 import React from 'react'
 import { FaPlayCircle } from 'react-icons/fa'
 
+import { setMovieId } from '../../../states/trailer'
+
 import Poster from './Poster'
 import Info from './Info'
 import Crew from './Crew'
 
-const PageHeader = ({ movie, setMovieId }) => {
+const PageHeader = ({ movie }) => {
   return (
     <div className="page-header">
       <div className="row">
