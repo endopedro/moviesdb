@@ -8,7 +8,6 @@ import moviesApi from '../services/moviesApi'
 
 import Layout from '../components/Layout'
 import MovieCard from '../components/MovieCard'
-import TrailerModal from '../components/TrailerModal'
 import Loader from '../components/Loader'
 
 const index = () => {
@@ -69,7 +68,6 @@ const index = () => {
         {!hasMoreMovies && (
           <h5 className="text-center mb-5">No more movies to load.</h5>
         )}
-        <TrailerModal />
       </div>
     </Layout>
   )

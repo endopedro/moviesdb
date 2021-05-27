@@ -6,7 +6,6 @@ import withReactContent from 'sweetalert2-react-content'
 import moviesApi from '../../services/moviesApi'
 import Loader from '../../components/Loader'
 import Layout from '../../components/Layout'
-import TrailerModal from '../../components/TrailerModal'
 import Navigation from '../../domain/movie/Navigation'
 import Background from '../../domain/movie/Background'
 import PageHeader from '../../domain/movie/PageHeader'
@@ -51,7 +50,7 @@ const Movie = () => {
   }
 
   return (
-    <Layout title={movie?.title}>
+    <Layout title={movie?.title} movie={movie}>
       {loading ? (
         <Loader className="mt-5" />
       ) : (
@@ -69,11 +68,6 @@ const Movie = () => {
           </div>
         </div>
       )}
-      <TrailerModal
-        showModal={showTrailer}
-        closeModal={closeModal}
-        movieId={movieId}
-      />
     </Layout>
   )
 }
