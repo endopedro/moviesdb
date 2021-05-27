@@ -42,8 +42,7 @@
       margin: auto;
 
       .poster-image {
-        @extend .rounded-3;
-
+        border-radius: $border-radius-xl;
         width: 100%;
       }
     }

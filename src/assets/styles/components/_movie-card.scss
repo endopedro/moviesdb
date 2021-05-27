@@ -1,12 +1,14 @@
 .movie-card {
-  @extend .rounded-3;
-
   position: relative;
   overflow: hidden;
   height: 300px;
+  width: 200px;
+  border-radius: $border-radius-xl;
 
   .movie-poster {
     height: 100%;
+    width: 100%;
+    object-fit: cover;
   }
 
   .buttons-wrapper.desktop {
@@ -51,20 +53,22 @@
 
 @include media-breakpoint-down(xxl) {
   .movie-card {
-    height: 245px;
+    height: 240px;
+    width: 160px;
   }
 }
 
 @include media-breakpoint-down(md) {
   .movie-card {
     height: 370px;
+    width: 246px;
   }
 }
 
 @include media-breakpoint-down(sm) {
   .movie-card {
     height: 370px;
-    max-width: 240px;
+    max-width: 246px;
     margin: 0 auto;
   }
 }
