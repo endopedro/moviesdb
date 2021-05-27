@@ -19,7 +19,7 @@ const Info = ({ movie, className }) => {
   return (
     <div className={`movie-info ${className ? className : ''}`}>
       {titles.map((title, index) => (
-        <div className="d-flex">
+        <div className="d-flex" key={index}>
           <div className="icon me-2">{icons[index]}</div>
           <div
             className={`d-flex flex-column${

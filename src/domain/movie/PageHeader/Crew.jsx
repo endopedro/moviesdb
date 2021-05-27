@@ -10,8 +10,8 @@ const Crew = ({ crew, className }) => {
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 4,
-    nextArrow: <FaChevronRight className="text-white" />,
-    prevArrow: <FaChevronLeft className="text-white" />,
+    nextArrow: <FaChevronRight />,
+    prevArrow: <FaChevronLeft />,
     responsive: [
       {
         breakpoint: 1024,
@@ -38,14 +38,14 @@ const Crew = ({ crew, className }) => {
   }
 
   return (
-    <div className={`crew ${className ? className : ''}`}>
+    <div className={`movie-crew ${className ? className : ''}`}>
       <h6 className="text-iris">Crew</h6>
       <Slider {...settings}>
         {crew.slice(0, 10).map((member) => (
-          <div className="crew-member">
+          <div className="crew-member" key={member.id}>
             <img
               className="picture"
-              src={getImageUrl(member.profile_path, 'w200')}
+              src={member.profile_path ? getImageUrl(member.profile_path, 'w200') : '/no-avatar.png '}
               alt={member.name}
               onError={(e) => (e.target.src = '/no-avatar.png')}
             />

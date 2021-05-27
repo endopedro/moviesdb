@@ -6,7 +6,7 @@ import TrailerModal from '../../../components/TrailerModal'
 import Info from './Info'
 import Crew from './Crew'
 
-const PageHeader = ({ movie }) => {
+const PageHeader = ({ movie, className }) => {
   const [showTrailer, setShowTrailer] = useState(false)
 
   return (

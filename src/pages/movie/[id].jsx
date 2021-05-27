@@ -9,6 +9,7 @@ import Layout from '../../components/Layout'
 import Navigation from '../../domain/movie/Navigation'
 import Background from '../../domain/movie/Background'
 import PageHeader from '../../domain/movie/PageHeader'
+import Cast from '../../domain/movie/Cast'
 
 const Movie = () => {
   const MySwal = withReactContent(Swal)
@@ -44,7 +45,8 @@ const Movie = () => {
           <Background src={movie?.backdrop_path} title={movie?.title} />
           <div className="container position-relative">
             <Navigation />
-            <PageHeader movie={movie} />
+            <PageHeader movie={movie} className="mb-5" />
+            <Cast cast={movie.cast} />
           </div>
         </div>
       )}
