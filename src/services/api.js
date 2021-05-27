@@ -5,7 +5,7 @@ axios.defaults.paramsSerializer = (params) =>
   qs.stringify(params, { arrayFormat: 'brackets' })
 
 const api = axios.create({
-  baseURL: process.env.MOVIEDB_BASE_URL,
+  baseURL: process.env.NEXT_PUBLIC_MOVIEDB_BASE_URL,
 })
 
 api.interceptors.request.use((config) => {

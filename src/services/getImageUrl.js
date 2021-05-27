@@ -1,4 +1,4 @@
 const getImageUrl = (imgName, size) =>
-  `${process.env.MOVIEDB_IMAGE_URL}/${size}${imgName}`
+  `${process.env.NEXT_PUBLIC_MOVIEDB_IMAGE_URL}/${size}${imgName}`
 
 export default getImageUrl
