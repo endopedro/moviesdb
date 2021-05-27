@@ -1,6 +1,7 @@
 .slick-arrow {
   color: $white;
   transition: 0.3s;
+  z-index: 999;
 
   &:hover {
     color: $gray-600;
@@ -9,6 +10,9 @@
 
 @include media-breakpoint-down(sm) {
   .slick-arrow {
+    height: 30px;
+    width: 30px;
+
     &.slick-prev {
       margin-left: 3rem;
     }
