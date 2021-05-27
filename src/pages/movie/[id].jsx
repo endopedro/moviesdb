@@ -2,8 +2,11 @@ import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
+import { NextSeo } from 'next-seo'
 
+import getImageUrl from '../../services/getImageUrl'
 import moviesApi from '../../services/moviesApi'
+
 import Loader from '../../components/Loader'
 import Layout from '../../components/Layout'
 import Navigation from '../../domain/movie/Navigation'
@@ -20,8 +23,6 @@ const Movie = () => {
 
   const [movie, setMovie] = useState(null)
   const [loading, setLoading] = useState(true)
-  const [showTrailer, setShowTrailer] = useState(false)
-  const [movieId, setMovieId] = useState(null)
 
   useEffect(() => {
     if (id) {
@@ -40,17 +41,19 @@ const Movie = () => {
     }
   }, [id])
 
-  useEffect(() => {
-    if (movieId) setShowTrailer(true)
-  }, [movieId])
-
-  const closeModal = () => {
-    setShowTrailer(false)
-    setMovieId(null)
-  }
-
   return (
-    <Layout title={movie?.title} movie={movie}>
+    <Layout>
+      {movie && (
+        <NextSeo
+          title={`${movie.title} | MoviesDB`}
+          openGraph={{
+            title: `${movie.title} | MoviesDB`,
+            url: `${process.env.NEXT_PUBLIC_SITE_URL}/movie/${movie.id}`,
+            description: `Movie: ${movie.title} | MoviesDB`,
+            images: [{ url: getImageUrl(movie.poster_path, 'w300') }],
+          }}
+        />
+      )}
       {loading ? (
         <Loader className="mt-5" />
       ) : (
@@ -58,13 +61,9 @@ const Movie = () => {
           <Background src={movie?.backdrop_path} title={movie?.title} />
           <div className="container position-relative">
             <Navigation />
-            <PageHeader
-              movie={movie}
-              className="mb-5"
-              setMovieId={setMovieId}
-            />
+            <PageHeader movie={movie} className="mb-5" />
             <Cast cast={movie.cast} />
-            <Similar similar={movie.similar} setMovieId={setMovieId} />
+            <Similar similar={movie.similar} />
           </div>
         </div>
       )}
