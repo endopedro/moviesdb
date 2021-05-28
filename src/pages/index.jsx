@@ -11,6 +11,7 @@ import Loader from '../components/Loader'
 
 const index = () => {
   const [movies, setMovies] = useState([])
+  const [totalPages, setTotalPages] = useState(500)
   const [hasMoreMovies, setHasMoreMovies] = useState(true)
 
   const fetchMovies = (page) => {
@@ -20,6 +21,7 @@ const index = () => {
         .then(({ data }) => {
           setMovies([...movies, ...data.results])
           if (data.page == data.total_pages) setHasMoreMovies(false)
+          if (page === 1) setTotalPages(data.total_pages)
         })
         .catch(() => {
           toast.error("Can't load movies", darkToast)
@@ -38,7 +40,7 @@ const index = () => {
           className="row"
           pageStart={0}
           loadMore={(page) => {
-            if (page <= 500) fetchMovies(page)
+            if (page <= totalPages) fetchMovies(page)
             else setHasMoreMovies(false)
           }}
           hasMore={hasMoreMovies}
