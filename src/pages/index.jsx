@@ -1,17 +1,15 @@
 import React, { useState } from 'react'
 import InfiniteScroll from 'react-infinite-scroller'
-import Swal from 'sweetalert2'
-import withReactContent from 'sweetalert2-react-content'
 import Moment from 'react-moment'
 import axios from 'axios'
+import toast, { Toaster } from 'react-hot-toast'
 
+import { darkToast } from '../data/toastStyles'
 import Layout from '../components/Layout'
 import MovieCard from '../components/MovieCard'
 import Loader from '../components/Loader'
 
 const index = () => {
-  const MySwal = withReactContent(Swal)
-
   const [movies, setMovies] = useState([])
   const [hasMoreMovies, setHasMoreMovies] = useState(true)
 
@@ -24,11 +22,7 @@ const index = () => {
           if (data.page == data.total_pages) setHasMoreMovies(false)
         })
         .catch(() => {
-          MySwal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Something went wrong.',
-          })
+          toast.error("Can't load movies", darkToast)
           setHasMoreMovies(false)
         })
     }
@@ -66,6 +60,7 @@ const index = () => {
           <h5 className="text-center mb-5">No more movies to load.</h5>
         )}
       </div>
+      <Toaster />
     </Layout>
   )
 }

@@ -18,7 +18,7 @@ const Movie = ({ movie }) => (
       openGraph={{
         title: `${movie.title} | MoviesDB`,
         url: `${process.env.NEXT_PUBLIC_SITE_URL}/movie/${movie.id}`,
-        description: `Details about the movie "${movie.title}" | MoviesDB`,
+        description: "Synopsis, casting and other details about the movie",
         images: [{ url: getImageUrl(movie.poster_path, 'w300') }],
       }}
     />

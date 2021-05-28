@@ -1,19 +1,15 @@
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
-import Swal from 'sweetalert2'
-import withReactContent from 'sweetalert2-react-content'
+import toast from 'react-hot-toast'
+
+import { darkToast } from '../data/toastStyles'
 
 const Custom404 = () => {
-  const MySwal = withReactContent(Swal)
   const router = useRouter()
 
   useEffect(() => {
-    MySwal.fire({
-      icon: 'error',
-      title: 'Oops...',
-      text: 'Something went wrong.',
-    })
     router.replace('/')
+    toast.error("Page not found", darkToast)
   }, [])
 
   return null
