@@ -13,10 +13,7 @@ const Similar = ({ similar }) => (
             <h6 className="mt-3 mb-1 text-center text-md-start">
               {movie.title}
             </h6>
-            <p
-              className="text-center text-md-start"
-              style={{ fontSize: '14px', color: '#DEE2E6' }}
-            >
+            <p className="text-center text-md-start text-gray-300 font-size-14">
               <Moment date={movie.release_date} format="ll" />
             </p>
           </div>
