@@ -27,7 +27,7 @@
     "react-moment": "^1.1.1",
     "react-player": "^2.9.0",
     "react-slick": "^0.28.1",
-    "sass": "^1.33.0",
+    "sass": "1.32.13",
     "simpler-state": "^1.0.2",
     "slick-carousel": "^1.8.1"
   }
