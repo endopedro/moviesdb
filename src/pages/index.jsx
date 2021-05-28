@@ -3,8 +3,7 @@ import InfiniteScroll from 'react-infinite-scroller'
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 import Moment from 'react-moment'
-
-import moviesApi from '../services/moviesApi'
+import axios from 'axios'
 
 import Layout from '../components/Layout'
 import MovieCard from '../components/MovieCard'
@@ -18,20 +17,18 @@ const index = () => {
 
   const fetchMovies = (page) => {
     if (hasMoreMovies) {
-      moviesApi()
-        .getPopular(page)
+      axios
+        .get('/api/movies', { params: { page: page } })
         .then(({ data }) => {
           setMovies([...movies, ...data.results])
           if (data.page == data.total_pages) setHasMoreMovies(false)
         })
-        .catch((error) => {
-          if (error.response.status != 422) {
-            MySwal.fire({
-              icon: 'error',
-              title: 'Oops...',
-              text: 'Failed to connect to server.',
-            })
-          }
+        .catch(() => {
+          MySwal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Something went wrong.',
+          })
           setHasMoreMovies(false)
         })
     }
@@ -46,7 +43,10 @@ const index = () => {
         <InfiniteScroll
           className="row"
           pageStart={0}
-          loadMore={fetchMovies}
+          loadMore={(page) => {
+            if (page <= 500) fetchMovies(page)
+            else setHasMoreMovies(false)
+          }}
           hasMore={hasMoreMovies}
           loader={<Loader key={0} />}
         >
@@ -56,7 +56,7 @@ const index = () => {
               <h6 className="mt-3 mb-1 text-center text-md-start">
                 {movie.title}
               </h6>
-              <p className="text-center text-md-start text-gray-300 font-size-14 ">
+              <p className="text-center text-md-start text-gray-300 font-size-14">
                 <Moment date={movie.release_date} format="ll" />
               </p>
             </div>
