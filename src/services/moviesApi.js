@@ -8,11 +8,13 @@ const moviesApi = () => ({
       api.get(`/movie/${id}`).then(({ data }) => data),
       api.get(`/movie/${id}/credits`).then(({ data }) => data),
       api.get(`/movie/${id}/similar`).then(({ data }) => data.results),
-    ]).then((values) => ({
-      ...values[0],
-      ...values[1],
-      similar: [...values[2]],
-    })),
+    ])
+      .then((values) => ({
+        ...values[0],
+        ...values[1],
+        similar: [...values[2]],
+      }))
+      .catch(() => null),
 })
 
 export default moviesApi
