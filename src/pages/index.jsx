@@ -18,7 +18,7 @@ const index = () => {
   const fetchMovies = (page) => {
     if (hasMoreMovies) {
       axios
-        .get('/api/movies', { params: { page: page } })
+        .get('/api/movies', { params: { page: page, type: 'movies' } })
         .then(({ data }) => {
           setMovies([...movies, ...data.results])
           if (data.page == data.total_pages) setHasMoreMovies(false)
