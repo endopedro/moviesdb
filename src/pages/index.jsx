@@ -1,16 +1,18 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import InfiniteScroll from 'react-infinite-scroller'
 import Moment from 'react-moment'
 import axios from 'axios'
 import toast, { Toaster } from 'react-hot-toast'
+
+import moviesApi from '../services/moviesApi'
 
 import { darkToast } from '../data/toastStyles'
 import Layout from '../components/Layout'
 import MovieCard from '../components/MovieCard'
 import Loader from '../components/Loader'
 
-const index = () => {
-  const [movies, setMovies] = useState([])
+const index = ({ popularMovies }) => {
+  const [movies, setMovies] = useState(popularMovies)
   const [totalPages, setTotalPages] = useState(500)
   const [hasMoreMovies, setHasMoreMovies] = useState(true)
 
@@ -38,7 +40,7 @@ const index = () => {
         </h1>
         <InfiniteScroll
           className="row"
-          pageStart={0}
+          pageStart={1}
           loadMore={(page) => {
             if (page <= totalPages) fetchMovies(page)
             else setHasMoreMovies(false)
@@ -65,6 +67,17 @@ const index = () => {
       <Toaster />
     </Layout>
   )
+}
+
+export async function getStaticProps() {
+  const popularMovies = await moviesApi()
+    .getPopular(1)
+    .then(({ data }) => data.results)
+
+  return {
+    props: { popularMovies },
+    revalidate: 600,
+  }
 }
 
 export default index

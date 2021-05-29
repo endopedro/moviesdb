@@ -34,11 +34,23 @@ const Movie = ({ movie }) => (
   </Layout>
 )
 
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
   const movie = await moviesApi().getMovie(context.params.id)
 
   if (!movie) return { notFound: true }
   return { props: { movie } }
+}
+
+export async function getStaticPaths() {
+  const movies = await moviesApi()
+    .getPopular(1)
+    .then(({ data }) => data.results)
+
+  const paths = movies.map((movie) => ({
+    params: { id: movie.id.toString() },
+  }))
+
+  return { paths, fallback: 'blocking' }
 }
 
 export default Movie
