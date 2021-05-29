@@ -58,7 +58,7 @@ const Crew = ({ crew, className }) => {
               src={
                 member.profile_path
                   ? getImageUrl(member.profile_path, 'w200')
-                  : '/images/no-avatar.png '
+                  : '/images/no-avatar.png'
               }
               alt={`Picture of ${member.name}`}
               width={40}
