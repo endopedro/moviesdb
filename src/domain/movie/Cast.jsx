@@ -4,6 +4,7 @@ import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 import Image from 'next/image'
 
 import getImageUrl from '../../services/getImageUrl'
+import SlickButtonFix from '../../components/SlickButtonFix'
 
 const Cast = ({ cast, className }) => {
   const settings = {
@@ -11,8 +12,16 @@ const Cast = ({ cast, className }) => {
     speed: 500,
     slidesToShow: 5,
     slidesToScroll: 5,
-    nextArrow: <FaChevronRight />,
-    prevArrow: <FaChevronLeft />,
+    nextArrow: (
+      <SlickButtonFix>
+        <FaChevronRight />
+      </SlickButtonFix>
+    ),
+    prevArrow: (
+      <SlickButtonFix>
+        <FaChevronLeft />
+      </SlickButtonFix>
+    ),
     responsive: [
       {
         breakpoint: 1024,

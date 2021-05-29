@@ -3,6 +3,7 @@ import Slider from 'react-slick'
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 import Image from 'next/image'
 
+import SlickButtonFix from '../../../components/SlickButtonFix'
 import getImageUrl from '../../../services/getImageUrl'
 
 const Crew = ({ crew, className }) => {
@@ -11,8 +12,16 @@ const Crew = ({ crew, className }) => {
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 4,
-    nextArrow: <FaChevronRight />,
-    prevArrow: <FaChevronLeft />,
+    nextArrow: (
+      <SlickButtonFix>
+        <FaChevronRight />
+      </SlickButtonFix>
+    ),
+    prevArrow: (
+      <SlickButtonFix>
+        <FaChevronLeft />
+      </SlickButtonFix>
+    ),
     responsive: [
       {
         breakpoint: 1024,
