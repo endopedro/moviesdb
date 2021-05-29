@@ -1,6 +1,7 @@
 import React from 'react'
 import Slider from 'react-slick'
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
+import Image from 'next/image'
 
 import getImageUrl from '../../../services/getImageUrl'
 
@@ -43,15 +44,16 @@ const Crew = ({ crew, className }) => {
       <Slider {...settings}>
         {crew.slice(0, 10).map((member) => (
           <div className="crew-member" key={member.id}>
-            <img
+            <Image
               className="picture"
               src={
                 member.profile_path
                   ? getImageUrl(member.profile_path, 'w200')
-                  : '/no-avatar.png '
+                  : '/images/no-avatar.png '
               }
-              alt={member.name}
-              onError={(e) => (e.target.src = '/no-avatar.png')}
+              alt={`Picture of ${member.name}`}
+              width={40}
+              height={40}
             />
             <div className="wrapper">
               <span className="name">{member.name}</span>

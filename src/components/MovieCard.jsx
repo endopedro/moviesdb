@@ -1,6 +1,7 @@
 import React from 'react'
 import { useRouter } from 'next/router'
 import { FaPlay } from 'react-icons/fa'
+import Image from 'next/image'
 
 import { setMovieId } from '../states/trailer'
 import { mobile } from '../states/mobile'
@@ -14,10 +15,13 @@ const MovieCard = ({ movie }) => {
 
   return (
     <div className="movie-card">
-      <img
+      <Image
         className="movie-poster"
         src={getImageUrl(movie.poster_path, 'w300')}
-        alt={movie.title}
+        alt={`Poster of ${movie.title}`}
+        width={246}
+        height={370}
+        layout="responsive"
         onClick={() => {
           if (isMobile) router.push(`/movie/${movie.id}`)
         }}

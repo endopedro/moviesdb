@@ -108,14 +108,15 @@
           width: 1.875rem;
           height: 1.875rem;
           object-fit: cover;
-          margin-right: 0.625rem;
           background-color: $gray-300;
         }
 
         .wrapper {
+          margin-left: 0.625rem;
           display: flex;
           flex-direction: column;
-
+          justify-content: center;
+          
           .name {
             font-size: 0.75rem;
             font-weight: 500;
@@ -225,10 +226,12 @@
             width: 2.5rem;
             height: 2.5rem;
           }
+
           .wrapper {
             .name {
               font-size: 1rem;
             }
+
             .job {
               font-size: 0.825rem;
               margin-top: -0.5rem;

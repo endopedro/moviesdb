@@ -1,5 +1,6 @@
 import React from 'react'
 import { mobile } from '../../states/mobile'
+import Image from 'next/image'
 
 import getImageUrl from '../../services/getImageUrl'
 
@@ -8,10 +9,11 @@ const Background = ({ src, title }) => {
 
   return (
     <div className="background">
-      <img
+      <Image
         className="background-image"
         src={getImageUrl(src, isMobile ? 'w780' : 'w1280')}
-        alt={title}
+        alt="Backdrop image"
+        layout="fill"
       />
       <div className="background-gradient" />
     </div>
