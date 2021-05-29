@@ -32,7 +32,7 @@ const MovieCard = ({ movie }) => {
           </div>
         </div>
       ) : (
-        <div className="buttons-wrapper desktop">
+        <div className="buttons-wrapper desktop" style={{ opacity: 0 }}>
           <button
             type="button"
             onClick={() => setMovieId(movie.id)}

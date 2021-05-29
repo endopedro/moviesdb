@@ -11,41 +11,43 @@
     object-fit: cover;
   }
 
-  .buttons-wrapper.desktop {
-    opacity: 0;
-    transition: 0.3s;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: rgba($black, 0.75);
-    top: 0;
-    left: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding: 1.5rem;
-
-    &:hover {
-      opacity: 1;
-    }
-  }
-
-  .buttons-wrapper.mobile {
-    .big-button {
-      @extend .rounded-pill;
-
-      background-color: $amaranth;
+  .buttons-wrapper {
+    &.desktop {
+      opacity: 0;
+      transition: 0.3s;
       position: absolute;
-      bottom: -50px;
-      height: 100px;
-      width: 100px;
-      left: -50px;
+      width: 100%;
+      height: 100%;
+      background-color: rgba($black, 0.75);
+      top: 0;
+      left: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 1.5rem;
+  
+      &:hover {
+        opacity: 1 !important;
+      }
+    }
 
-      .icon {
+    &.mobile {
+      .big-button {
+        @extend .rounded-pill;
+  
+        background-color: $amaranth;
         position: absolute;
-        top: 20px;
-        right: 20px;
+        bottom: -50px;
+        height: 100px;
+        width: 100px;
+        left: -50px;
+  
+        .icon {
+          position: absolute;
+          top: 20px;
+          right: 20px;
+        }
       }
     }
   }
