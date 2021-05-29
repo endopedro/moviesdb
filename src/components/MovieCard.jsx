@@ -1,15 +1,16 @@
 import React from 'react'
 import { useRouter } from 'next/router'
-import { isMobile } from 'react-device-detect'
 import { FaPlay } from 'react-icons/fa'
 
 import { setMovieId } from '../states/trailer'
+import { mobile } from '../states/mobile'
 import getImageUrl from '../services/getImageUrl'
 
 import MovieScore from '../components/MovieScore'
 
 const MovieCard = ({ movie }) => {
   const router = useRouter()
+  const isMobile = mobile.use()
 
   return (
     <div className="movie-card">

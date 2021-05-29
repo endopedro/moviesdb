@@ -2,16 +2,17 @@ import React, { useState, useEffect } from 'react'
 import { Modal } from 'react-bootstrap'
 import ReactPlayer from 'react-player'
 import _ from 'lodash'
-import { isMobile } from 'react-device-detect'
 import axios from 'axios'
 
 import { movieIdHandler, trailerHandler, reset } from '../states/trailer'
+import { mobile } from '../states/mobile'
 
 import Loader from './Loader'
 
 const TrailerModal = () => {
   const trailerMovieId = movieIdHandler.use()
   const showTrailer = trailerHandler.use()
+  const isMobile = mobile.use()
 
   const [url, setUrl] = useState(null)
   const [videoNotFound, setVideoNotFound] = useState(false)

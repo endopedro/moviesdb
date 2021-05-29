@@ -1,17 +1,21 @@
 import React from 'react'
-import { isMobile } from 'react-device-detect'
+import { mobile } from '../../states/mobile'
 
 import getImageUrl from '../../services/getImageUrl'
 
-const Background = ({ src, title }) => (
-  <div className="background">
-    <img
-      className="background-image"
-      src={getImageUrl(src, isMobile ? 'w780' : 'w1280')}
-      alt={title}
-    />
-    <div className="background-gradient" />
-  </div>
-)
+const Background = ({ src, title }) => {
+  const isMobile = mobile.use()
+
+  return (
+    <div className="background">
+      <img
+        className="background-image"
+        src={getImageUrl(src, isMobile ? 'w780' : 'w1280')}
+        alt={title}
+      />
+      <div className="background-gradient" />
+    </div>
+  )
+}
 
 export default Background
