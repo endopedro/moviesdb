@@ -14,7 +14,11 @@ import Loader from '../components/Loader'
 const index = ({ popularMovies }) => {
   const [movies, setMovies] = useState(popularMovies)
   const [totalPages, setTotalPages] = useState(500)
-  const [hasMoreMovies, setHasMoreMovies] = useState(true)
+  const [hasMoreMovies, setHasMoreMovies] = useState(!!popularMovies)
+
+  useEffect(() => {
+    if (!popularMovies) toast.error("Can't load movies", darkToast)
+  }, [])
 
   const fetchMovies = (page) => {
     if (hasMoreMovies) {
@@ -48,7 +52,7 @@ const index = ({ popularMovies }) => {
           hasMore={hasMoreMovies}
           loader={<Loader key={0} />}
         >
-          {movies.map((movie) => (
+          {movies?.map((movie) => (
             <div className="col-xl-2 col-md-3 col-sm-6 mb-3" key={movie.id}>
               <MovieCard movie={movie} />
               <h6 className="mt-3 mb-1 text-center text-md-start">
@@ -73,6 +77,7 @@ export async function getStaticProps() {
   const popularMovies = await moviesApi()
     .getPopular(1)
     .then(({ data }) => data.results)
+    .catch(() => null)
 
   return {
     props: { popularMovies },
