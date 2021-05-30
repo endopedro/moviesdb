@@ -7,7 +7,6 @@ import MovieScore from '../../../components/MovieScore'
 const Poster = ({ src, title, score }) => {
   return (
     <div className="poster">
-      <MovieScore score={score} lg />
       <Image
         className="poster-image"
         src={getImageUrl(src, 'w500')}
@@ -16,6 +15,7 @@ const Poster = ({ src, title, score }) => {
         height={525}
         layout="responsive"
       />
+      <MovieScore score={score} lg />
     </div>
   )
 }
