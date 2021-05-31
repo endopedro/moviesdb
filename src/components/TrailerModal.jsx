@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Modal } from 'react-bootstrap'
 import ReactPlayer from 'react-player'
-import _ from 'lodash'
 import axios from 'axios'
 
 import { movieIdHandler, trailerHandler, reset } from '../states/trailer'
@@ -24,10 +23,9 @@ const TrailerModal = () => {
       axios
         .get('/api/movies', { params: { id: trailerMovieId, type: 'videos' } })
         .then(({ data }) => {
-          const trailerKey = _.find(data.results, {
-            type: 'Trailer',
-            site: 'YouTube',
-          })?.key
+          const trailerKey = data.results.find(
+            (result) => result.type == 'Trailer' && result.site == 'YouTube'
+          ).key
           if (trailerKey)
             setUrl(`https://www.youtube.com/watch?v=${trailerKey}`)
           else setVideoNotFound(true)
