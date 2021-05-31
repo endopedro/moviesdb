@@ -1,6 +1,7 @@
 import React from 'react'
+
 import MovieCard from '../../components/MovieCard'
-import Moment from 'react-moment'
+import formatDate from '../../utils/formatDate'
 
 const Similar = ({ similar }) => (
   <div className="row mb-5">
@@ -14,7 +15,7 @@ const Similar = ({ similar }) => (
               {movie.title}
             </h6>
             <p className="text-center text-md-start text-gray-300 font-size-14">
-              <Moment date={movie.release_date} format="ll" />
+              {formatDate(movie.release_date)}
             </p>
           </div>
         ))}

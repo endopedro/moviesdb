@@ -1,6 +1,7 @@
 import React from 'react'
 import { FaRegCalendar, FaRegClock, FaDollarSign } from 'react-icons/fa'
-import Moment from 'react-moment'
+
+import formatDate from '../../../utils/formatDate'
 
 const Info = ({ movie, className }) => {
   const { release_date, runtime, budget } = movie
@@ -8,7 +9,7 @@ const Info = ({ movie, className }) => {
   const icons = [<FaRegCalendar />, <FaRegClock />, <FaDollarSign />]
   const titles = ['Release Date', 'Runtime', 'Budget']
   const infos = [
-    <Moment date={release_date} format="ll" />,
+    formatDate(release_date),
     `${Math.floor(runtime / 60)}h ${runtime % 60}m`,
     new Intl.NumberFormat('en-US', {
       style: 'currency',

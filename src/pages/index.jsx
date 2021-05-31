@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import InfiniteScroll from 'react-infinite-scroller'
-import Moment from 'react-moment'
 import axios from 'axios'
 import toast, { Toaster } from 'react-hot-toast'
 
+import formatDate from '../utils/formatDate'
 import moviesApi from '../services/moviesApi'
 
 import { darkToast } from '../data/toastStyles'
@@ -59,7 +59,7 @@ const index = ({ popularMovies }) => {
                 {movie.title}
               </h6>
               <p className="text-center text-md-start text-gray-300 font-size-14">
-                <Moment date={movie.release_date} format="ll" />
+                {formatDate(movie.release_date)}
               </p>
             </div>
           ))}
