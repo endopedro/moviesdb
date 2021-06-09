@@ -1,34 +1,56 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# MoviesDB
+
+A nice webapp to list the most popular movies, it's helpful to find something to watch when you have no idea.
+
+## It's alive
+
+[https://moviesdb-e.vercel.app/](https://moviesdb-e.vercel.app/)
+
+## Screenshots
+
+![screenshot1](./info/screen1.webp)
+
+![screenshot2](./info/screen2.webp)
+
+## About the project
+
+This project is based on [MoviesDB Layout](./info/layout.xd), designed by [Luan Santos](https://github.com/luankjs).
+
+Some test criteria should be considered:
+
+- Should use a javascript framework
+- Should use Sass
+- Should use Bootstrap
+- Should use The Movies DB API
+
+## Stack
+
+- [React](https://reactjs.org/)
+- [Next.js](https://nextjs.org)
+- [Sass](https://sass-lang.com)
+- [Bootstrap v5](https://getbootstrap.com/)
+- [The Movie DB API](https://www.themoviedb.org/)
 
 ## Getting Started
 
-First, run the development server:
+1. Clone the repository
 
 ```bash
-npm run dev
-# or
+git clone https://github.com/endopedro/moviesdb.git
+```
+
+2. Then create and fill the .env file (based on .env.example) with your TMDB credentials and app informations.
+
+3. Install dependencies
+
+```bash
+yarn
+```
+
+4. Fire up the server and watch files
+
+```bash
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+5. Go to the address [http://localhost:3000/](http://localhost:3000/)
